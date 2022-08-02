@@ -38,6 +38,7 @@ public class KelilingBangunDatar {
             switch (choice){
                 case 1 : hasil =  2*panjang + 2*lebar; // keliling
                 case 2 : hasil = panjang * lebar; // luas
+                case 3 : System.exit(0);
             }
 
             System.out.println("Hasil : " + hasil);
@@ -60,11 +61,12 @@ public class KelilingBangunDatar {
             switch (choice){
                 case 1 : hasil =  sisi*4;
                 case 2 : hasil = sisi * sisi;
+                case 3 : System.exit(0);
             }
 
             System.out.println("Hasil : " + hasil);
 
-        }else if (menu == 3){
+        }else if (menu == 3) {
             System.out.println("Luas dan Keliling Segitiga");
             System.out.println("1. Keliling");
             System.out.println("2. Luas");
@@ -80,12 +82,20 @@ public class KelilingBangunDatar {
             System.out.println("Masukkan tinggi : ");
             int tinggi = input.nextInt();
 
-            switch (choice){
-                case 1 : hasil =  alas*3;
-                case 2 : hasil = 0.5 * alas*tinggi;
+            switch (choice) {
+                case 1:
+                    hasil = alas * 3;
+                case 2:
+                    hasil = 0.5 * alas * tinggi;
+                case 3 : System.exit(0);
             }
 
             System.out.println("Hasil : " + hasil);
+        } else if (menu == 4) {
+            System.out.println("exit");
+            System.exit(0);
+        } else {
+            System.out.println("Pilihanmu ra genah Cok!!!");
 
         }
     }
