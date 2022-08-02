@@ -1,0 +1,92 @@
+import java.util.Scanner;
+
+/**
+ * @author : Noverry Ambo
+ * @since : 02/08/2022, Tue
+ **/
+public class KelilingBangunDatar {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        double hasil = 0;
+        System.out.println("Menghitung Luas dan Keliling Bangun Datar");
+        System.out.println("=================MENU====================");
+        System.out.println("1. Persegi Panjang");
+        System.out.println("2. Persegi");
+        System.out.println("3. Segitiga");
+        System.out.println("4. Keluar");
+
+        // input data
+        System.out.println("Masukkan Menu : ");
+        int menu = input.nextInt();
+        if (menu == 1 ){
+            System.out.println("Luas dan Keliling Persegi Panjang");
+            System.out.println("1. Keliling");
+            System.out.println("2. Luas");
+            System.out.println("3. Keluar");
+
+            // Pilihan Operasi
+            System.out.println("Pilih Operasi : ");
+            int choice = input.nextInt();
+
+            // Input Nilai
+            System.out.println("Masukkan Panjang : ");
+            int panjang = input.nextInt();
+            System.out.println("Masukkan Lebar : ");
+            int lebar = input.nextInt();
+
+            switch (choice){
+                case 1 : hasil =  2*panjang + 2*lebar; // keliling
+                case 2 : hasil = panjang * lebar; // luas
+            }
+
+            System.out.println("Hasil : " + hasil);
+
+
+        }else if (menu == 2){
+            System.out.println("Luas dan Keliling Persegi");
+            System.out.println("1. Keliling");
+            System.out.println("2. Luas");
+            System.out.println("3. Keluar");
+
+            // Pilihan Operasi
+            System.out.println("Pilih Operasi : ");
+            int choice = input.nextInt();
+
+            // Input Nilai
+            System.out.println("Masukkan Sisi : ");
+            int sisi = input.nextInt();
+
+            switch (choice){
+                case 1 : hasil =  sisi*4;
+                case 2 : hasil = sisi * sisi;
+            }
+
+            System.out.println("Hasil : " + hasil);
+
+        }else if (menu == 3){
+            System.out.println("Luas dan Keliling Segitiga");
+            System.out.println("1. Keliling");
+            System.out.println("2. Luas");
+            System.out.println("3. Keluar");
+
+            // Pilihan Operasi
+            System.out.println("Pilih Operasi : ");
+            int choice = input.nextInt();
+
+            // Input Nilai
+            System.out.println("Masukkan Alas : ");
+            int alas = input.nextInt();
+            System.out.println("Masukkan tinggi : ");
+            int tinggi = input.nextInt();
+
+            switch (choice){
+                case 1 : hasil =  alas*3;
+                case 2 : hasil = 0.5 * alas*tinggi;
+            }
+
+            System.out.println("Hasil : " + hasil);
+
+        }
+    }
+}
