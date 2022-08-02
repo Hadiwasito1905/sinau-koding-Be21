@@ -1,0 +1,50 @@
+import java.util.HashMap;
+import java.util.Scanner;
+
+/**
+ * @author : Noverry Ambo
+ * @since : 02/08/2022, Tue
+ **/
+public class KelulusanMahasiswa {
+
+        String nama;
+        int nilai;
+        String status;
+
+        public KelulusanMahasiswa(String nama, int nilai, String status) {
+            this.nama = nama;
+            this.nilai = nilai;
+            this.status = status;
+        }
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        Scanner input2 = new Scanner(System.in);
+
+        System.out.print("Masukan jumlah mahasiswa : ");
+        int total = input.nextInt();
+
+//        KelulusanMahasiswa mahasiswa = new KelulusanMahasiswa(nama, nilai, nilai >= 60 ? "Lulus" : "Tidak Lulus");
+
+        HashMap<Integer, KelulusanMahasiswa> data = new HashMap<>();
+        for(int i = 1; i <= total; i++) {
+            System.out.println("Mahasiswa ke : " + i);
+            
+            System.out.print("Nama : ");
+            String nama = input2.nextLine();
+            
+            System.out.print("Nilai : ");
+            int nilai = input.nextInt();
+            
+            data.put(i , new KelulusanMahasiswa(nama, nilai, nilai >= 60 ? "Lulus" : "Tidak Lulus"));
+        }
+            
+        System.out.println("No\tNama\tNilai\tStatus");
+        for (int a = 1; a <= data.size(); a++){
+            System.out.println(a + "\t" + data.get(a).nama + "\t" + data.get(a).nilai + "\t\t" + data.get(a).status);
+        }
+    }
+
+
+
+}
