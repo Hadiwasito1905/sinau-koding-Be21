@@ -1,0 +1,47 @@
+package mainApplikasi;
+
+import interfaces.MainInterface;
+
+import java.util.Scanner;
+
+/**
+ * @author : Noverry Ambo
+ * @since : 03/08/2022, Wed
+ **/
+public class HitungSegitiga implements MainInterface {
+    private double alas;
+    private double tinggi;
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        HitungSegitiga hitungLuasDanKeliling = new HitungSegitiga();
+        System.out.println("Masukkan Alas : ");
+        double alas = input.nextInt();
+
+        System.out.println("Masukkan tinggi : ");
+        double tinggi = input.nextInt();
+
+
+        hitungLuasDanKeliling.alas = alas;
+        hitungLuasDanKeliling.tinggi = tinggi;
+
+        hitungLuasDanKeliling.keliling();
+        hitungLuasDanKeliling.luas();
+    }
+
+    @Override
+    public void keliling(){
+        double keliling = alas * 4;
+        System.out.println("Keliling : " + keliling);
+    }
+
+    @Override
+    public void luas(){
+        double luas =  0.5 * alas * tinggi;
+        System.out.println("Luas : " + luas);
+    }
+
+
+}
