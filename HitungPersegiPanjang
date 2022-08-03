@@ -1,0 +1,47 @@
+package mainApplikasi;
+
+import interfaces.MainInterface;
+
+import java.util.Scanner;
+
+/**
+ * @author : Noverry Ambo
+ * @since : 03/08/2022, Wed
+ **/
+public class HitungPersegiPanjang implements MainInterface {
+    private double panjang;
+    private double lebar;
+
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        HitungPersegiPanjang hitungLuasDanKeliling = new HitungPersegiPanjang();
+        System.out.println("Masukkan Panjang : ");
+        double panjang = input.nextInt();
+
+        System.out.println("Masukkan lebar : ");
+        double lebar = input.nextInt();
+
+
+         hitungLuasDanKeliling.panjang = panjang;
+         hitungLuasDanKeliling.lebar = lebar;
+
+         hitungLuasDanKeliling.keliling();
+         hitungLuasDanKeliling.luas();
+    }
+
+    @Override
+    public void keliling(){
+        double keliling = 2*panjang + 2*lebar;
+        System.out.println("Keliling : " + keliling);
+    }
+
+    @Override
+    public void luas(){
+        double luas =  panjang * lebar;
+        System.out.println("Luas : " + luas);
+    }
+
+
+}
