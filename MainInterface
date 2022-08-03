@@ -1,0 +1,12 @@
+package interfaces;
+
+/**
+ * @author : Noverry Ambo
+ * @since : 03/08/2022, Wed
+ **/
+public interface MainInterface {
+
+    void keliling();
+
+    void luas();
+}
