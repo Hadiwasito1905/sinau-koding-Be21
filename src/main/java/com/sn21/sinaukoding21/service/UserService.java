@@ -5,6 +5,8 @@ import com.sn21.sinaukoding21.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,6 +40,12 @@ public class UserService {
         data.setPhone(user.getPhone() != null ? user.getPhone() : data.getPhone());
 
         return repository.save(data);
+    }
+
+    @Transactional
+    public List<User> saveAllUser(List<User> usersList) {
+        List<User> response = repository.saveAll(usersList);
+        return response;
     }
 
 }

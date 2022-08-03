@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 /**
  * @author : Noverry Ambo
  * @since : 03/08/2022, Wed
@@ -37,6 +39,11 @@ public class UserController {
     public ResponseEntity<?> updateUser(@PathVariable Integer id,
                                         @RequestBody User user) {
         return new ResponseEntity(service.updateUser(id, user), HttpStatus.OK);
+    }
+
+    @PostMapping("/saveall")
+    public ResponseEntity<?> saveAllUsers(@RequestBody List<User> users){
+        return new ResponseEntity<>(service.saveAllUser(users), HttpStatus.OK);
     }
 
 }
