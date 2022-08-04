@@ -1,5 +1,6 @@
 package com.sn21.sinaukoding21.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,4 +32,14 @@ public class User {
 
     @Column(name = "phone")
     private String phone;
+
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "detail_user_id")
+    private DetailUser detailUser;
+
+    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "role_id")
+    private RoleUser role;
 }
