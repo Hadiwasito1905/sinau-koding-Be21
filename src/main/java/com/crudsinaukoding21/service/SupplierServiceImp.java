@@ -1,6 +1,8 @@
 package com.crudsinaukoding21.service;
 
-import com.crudsinaukoding21.model.Transaksi;
+import com.crudsinaukoding21.model.Supplier;
+import com.crudsinaukoding21.repository.SupplierRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -12,24 +14,34 @@ import java.util.List;
  **/
 @Service
 @Transactional
-public class SupplierServiceImp implements TransaksiService{
+public class SupplierServiceImp implements SupplierService{
+
+    @Autowired
+    SupplierRepo repository;
+
+
     @Override
-    public List<Transaksi> findAllTransaksi() {
-        return null;
+    public List<Supplier> findAllSupplier() {
+        return repository.findAll();
     }
 
     @Override
-    public Transaksi createTransaksi(Transaksi param) {
-        return null;
+    public Supplier createSupplier(Supplier param) {
+        return repository.save(param);
     }
 
     @Override
-    public Transaksi updateTransaksi(int id, Transaksi param) {
-        return null;
+    public Supplier updateSupplier(int id, Supplier param) {
+        Supplier data = repository.findById(id).orElseThrow(null);
+        data.setNamaSupplier(param.getNamaSupplier() != null ? param.getNamaSupplier() : data.getNamaSupplier());
+        data.setAlamat(param.getAlamat() != null ? param.getNamaSupplier() : data.getAlamat());
+        data.setNoTlp(param.getNoTlp() != null ? param.getNoTlp() : data.getNoTlp());
+
+        return repository.save(data);
     }
 
     @Override
-    public void deleteTransaksi(int id) {
-
+    public void deleteSupplier(int id) {
+        repository.deleteById(id);
     }
 }

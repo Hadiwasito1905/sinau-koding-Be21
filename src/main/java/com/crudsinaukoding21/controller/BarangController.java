@@ -3,6 +3,7 @@ package com.crudsinaukoding21.controller;
 import com.crudsinaukoding21.model.Barang;
 import com.crudsinaukoding21.service.BarangService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,13 +33,13 @@ public class BarangController {
     }
 
     @GetMapping("/getall")
-    public List<Barang> getAll(){
-        return service.getAllBarang();
+    public ResponseEntity<?> findAllbarang(){
+        return new ResponseEntity<>(service.getAllBarang(), HttpStatus.OK);
     }
 
     @PostMapping("/update")
-    public Barang update(@RequestBody Barang barang, Integer id){
-        return service.updateBarang(barang, id);
+    public ResponseEntity<?> update(@RequestBody Barang barang, @PathVariable Integer id){
+        return new ResponseEntity<>(service.updateBarang(barang, id), HttpStatus.OK);
     }
 
     @GetMapping("/getone/{id}")
@@ -47,8 +48,9 @@ public class BarangController {
     }
 
     @DeleteMapping("/delete/{id}")
-    public void removeOne(@PathVariable("id") Integer id){
+    public ResponseEntity<?> removeOne(@PathVariable("id") Integer id){
         service.removeOne(id);
+        return new ResponseEntity<>("Data berhasil dihapus", HttpStatus.OK);
     }
 
     @GetMapping("/getnama/{nama}")

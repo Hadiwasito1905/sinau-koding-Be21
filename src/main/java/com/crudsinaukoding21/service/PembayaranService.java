@@ -12,5 +12,6 @@ public interface PembayaranService {
 
     Pembayaran createData(Pembayaran pembayaran);
     List<Pembayaran> getAll();
+    void deleteById(Integer id);
 
 }
